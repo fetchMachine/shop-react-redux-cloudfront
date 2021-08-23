@@ -1,12 +1,11 @@
-service: node-in-aws-web
+service: rss-shop-serverless
 
 frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs12.x
-  # setup profile for AWS CLI.
-  # profile: node-aws
+  runtime: nodejs14.x
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -17,7 +16,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: rss-shop-serverless-bucket
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
